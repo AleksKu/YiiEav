@@ -2,11 +2,10 @@
 
 class DefaultController extends Controller
 {
-	public function actionIndex()
-	{
-		$model = Product::model()->findByPk(1);
+    public function actionIndex()
+    {
+     echo   $model = Product::model()->getAttributeLabel('price');
 
-      $model->price = 2000.23;
-        $model->save();
-	}
+
+    }
 }

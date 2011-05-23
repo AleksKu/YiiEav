@@ -10,15 +10,10 @@
 class ProductEntity extends CActiveRecord
 {
 
-    protected $flatAttrsMetaData;
-    protected $flatAttrs;
-    protected $defaultFlatAtrrScope = array();
+    protected $flatAttrsMetaData = array();
+    protected $flatAttrs = array();
     protected $flatAttributesRules = array();
 
-    public function defaultScope()
-    {
-        return $this->defaultFlatAtrrScope;
-    }
 
     /**
      *
@@ -27,7 +22,7 @@ class ProductEntity extends CActiveRecord
     public function init()
     {
 
-        $this->initDefaultScope();
+
 
         /*@TODO добавить правила валидации*/
 
@@ -45,6 +40,10 @@ class ProductEntity extends CActiveRecord
         $this->initFlatAttrsRules();
     }
 
+    /**
+     *
+     * @return void
+     */
     public function afterFind()
     {
 
@@ -92,12 +91,7 @@ class ProductEntity extends CActiveRecord
         parent::afterSave();
     }
 
-    protected function initDefaultScope()
-    {
-        /*       $this->defaultFlatAtrrScope = array(
-            'join'
-        );*/
-    }
+
 
 
     protected function initFlatAttrsRules()
